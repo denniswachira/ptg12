@@ -1,0 +1,2832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.haulmont.com/sherlock/adler" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.haulmont.com/sherlock/adler" targetNamespace="http://www.haulmont.com/sherlock/adler">
+  <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.haulmont.com/sherlock/adler" xmlns:tns="http://www.haulmont.com/sherlock/adler">
+
+    <!--  1. Schema Validation -->
+    <xs:element name="SchemaValidationFaultDetail" type="tns:schemaValidationFaultDetail" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  1. Login/Logout -->
+    <xs:element name="LoginRequest" type="tns:loginRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="LoginResponse" type="tns:loginResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="LogoutRequest" type="tns:logoutRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="LogoutResponse" type="tns:logoutResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  2. Account Info -->
+    <xs:element name="AccountInfoRequest" type="tns:accountInfoRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="AccountInfoResponse" type="tns:accountInfoResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="PinInfoRequest" type="tns:pinRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="PinInfoResponse" type="tns:pinResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="CallerInfoRequest" type="tns:callerInfoRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="CallerInfoResponse" type="tns:callerInfoResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="CustomerDataRequest" type="tns:customerDataRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="CustomerDataResponse" type="tns:customerDataResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="TelephonesEmailsRequest" type="tns:telephoneEmailsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="TelephonesEmailsResponse" type="tns:telephoneEmailsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  3. Job Related Data -->
+    <xs:element name="ReferenceInstancesRequest" type="tns:referenceInstancesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="ReferenceInstancesResponse" type="tns:referenceInstancesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="RouteSettingsRequest" type="tns:routeSettingsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RouteSettingsResponse" type="tns:routeSettingsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="AvailableInstructionTypesRequest" type="tns:instructionTypesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="AvailableInstructionTypesResponse" type="tns:instructionTypesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="AirportsRequest" type="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="AirportsResponse" type="tns:airportsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="TrainStationsRequest" type="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="TrainStationsResponse" type="tns:trainStationsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="AddressSearchByStringRequest" type="tns:addressSearchByStringRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="AddressSearchByStringResponse" type="tns:addressSearchResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="AddressSearchByCoordinatesRequest" type="tns:addressSearchByCoordinatesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="AddressSearchByCoordinatesResponse" type="tns:addressSearchResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="AdlerWsGetDetailedAddressRequest" type="tns:adlerWsGetDetailedAddressRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="AdlerWsGetDetailedAddressResponse" type="tns:addressSearchResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  4. Calculate Job Totals-->
+    <xs:element name="QuotationRequest" type="tns:jobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="QuotationResponse" type="tns:quotationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="DelayRequest" type="tns:delayRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="DelayResponse" type="tns:delayResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!-- 5. Validating job data -->
+    <xs:element name="ValidateReferencesRequest" type="tns:validateReferencesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="ValidateReferencesResponse" type="tns:validateReferencesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="ValidateJobRequest" type="tns:jobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="ValidateJobResponse" type="tns:jobValidationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+
+    <!--  6. Job Management -->
+    <xs:element name="BookJobRequest" type="tns:bookJobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="BookJobResponse" type="tns:bookJobResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="CompletePaymentRequest" type="tns:completePaymentRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="CompletePaymentResponse" type="tns:bookJobResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="AmendJobRequest" type="tns:amendJobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="AmendJobResponse" type="tns:bookJobResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="CancelJobRequest" type="tns:cancelJobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="CancelJobResponse" type="tns:cancelJobResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="JobStatusRequest" type="tns:jobIdRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="JobStatusResponse" type="tns:jobStatusResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="JobPriceDetailsRequest" type="tns:jobPriceDetailsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="JobPriceDetailsResponse" type="tns:jobPriceDetailsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="ReceiptRequest" type="tns:receiptRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="ReceiptResponse" type="tns:receiptResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="ZoneInfoRequest" type="tns:zoneInfoRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="ZoneInfoResponse" type="tns:zoneInfoResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="FleetRequest" type="tns:fleetRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="FleetResponse" type="tns:fleetResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  7. Client Messages -->
+    <xs:element name="JobStatusChangedRequest" type="tns:jobStatusChangedRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="JobStatusChangedResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:element name="JobReadyForInvoiceRequest" type="tns:jobReadyForInvoiceRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="JobReadyForInvoiceResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  Retail part -->
+    <!--  1. Registration  -->
+    <xs:element name="RetailRegisterRequest" type="tns:retailRegisterRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailRegisterResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  2. Login  -->
+    <xs:element name="RetailLoginRequest" type="tns:retailLoginRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailLoginResponse" type="tns:retailLoginResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  3. Password recovery  -->
+    <xs:element name="RetailPasswordRecoveryRequest" type="tns:retailPasswordRecoveryRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailPasswordRecoveryResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  3. User exists check -->
+    <xs:element name="RetailCheckUserExistsRequest" type="tns:retailCheckUserExistsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailCheckUserExistsResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  4. Change user password -->
+    <xs:element name="RetailChangePasswordRequest" type="tns:retailChangePasswordRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailChangePasswordResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  4. Change user phone  -->
+    <xs:element name="RetailChangePhoneRequest" type="tns:retailChangePhoneRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailChangePhoneResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  4. Change user profile details  -->
+    <xs:element name="RetailUpdateProfileRequest" type="tns:retailUpdateProfileRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailUpdateProfileResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  5. Load user profile details  -->
+    <xs:element name="RetailLoadProfileRequest" type="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailLoadProfileResponse" type="tns:retailLoadProfileResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <!--  5. Load user profile details  -->
+    <xs:element name="RetailLogoutRequest" type="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+    <xs:element name="RetailLogoutResponse" type="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+    <xs:complexType name="retailRegisterRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="phone" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="email" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="retailLoginRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="phone" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="password" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="retailLoginResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="retailSessionId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="retailPasswordRecoveryRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="phone" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="retailCheckUserExistsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="phone" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="retailChangePasswordRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="newPassword" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="retailChangePhoneRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="newPhone" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="retailUpdateProfileRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="newName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="newEmail" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="retailLoadProfileResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="email" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:simpleType name="uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- String formatted by MM/YY rule -->
+    <xs:simpleType name="monthYear" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:pattern value="(0?[1-9]|1[0-2])\/[0-9]{2}" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="sessionId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="retailSessionId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="responseCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="message" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--  1. Login/Logout -->
+    <xs:complexType name="loginRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="login" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="password" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="loginResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="sessionId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="logoutRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="logoutResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="type" type="tns:serviceType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="maxPassengersCount" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" name="availablePaymentType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--  2. Account Info -->
+    <xs:complexType name="account" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="number" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="type" type="tns:accountType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="status" type="tns:accountStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="bookingSettings" type="tns:customerBookingSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <!-- List of payment types available for given account-->
+            <xs:element maxOccurs="unbounded" name="paymentType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pin" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="status" type="tns:pinStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="individual" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="id" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="individualWithStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:individual" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="status" type="tns:individualStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Account Settings -->
+    <xs:complexType name="customerBookingSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="referenceUsed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="airportSettings" type="tns:airportStopSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="trainSettings" type="tns:trainStopSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element name="pinSettings" type="tns:customerProfileSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="callerSettings" type="tns:customerProfileSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="contactSettings" type="tns:customerProfileSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="passengerSettings" type="tns:customerProfileSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element name="cvcRequiredSettings" type="tns:cvcRequiredSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="cvcRequiredSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="forNewCreditCard" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="forExistingCreditCard" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="airportStopSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="0" name="defaultPickupTimeDelay" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="airlineRequired" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="flightNumberRequired" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="arrivalFromRequired" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="trainStopSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="0" name="defaultPickupTimeDelay" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="trainNumberRequired" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="arrivalFromRequired" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="customerProfileSettings" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="used" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="showPrompts" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="mustBeInList" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="tag" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- End of Account Settings -->
+
+    <xs:complexType name="accountInfoRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="withCallers" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="accountInfoResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="account" type="tns:account" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="callers" type="tns:individualWithStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="allLoaded" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="pinRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="withCallers" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="pinResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="pin" type="tns:pin" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="callers" type="tns:individualWithStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="allLoaded" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="callerInfoRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="callerInfoResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="caller" type="tns:individualWithStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="coordinatesAddress" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="latitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="longitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="customerDataRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="caller" type="tns:individual" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pickupAddress" type="tns:coordinatesAddress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="dataToLoad" type="tns:dataToLoad" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="dataToLoad" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="references" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="services" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="addresses" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="contacts" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="passengers" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="airports" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="trainStations" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="creditCards" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="customerDataResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="referenceEntities" type="tns:referenceEntity" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="services" type="tns:service" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="pickupAddresses" type="tns:customerAddress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="dropAddresses" type="tns:customerAddress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="contacts" type="tns:individualWithStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="passengers" type="tns:individualWithStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="airports" type="tns:airport" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="trainStations" type="tns:trainStation" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="creditCards" type="tns:creditCardInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Available addresses -->
+    <xs:complexType name="customerAddress" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="address" type="tns:address" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="note" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="address" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="formattedAddress" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="latitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="longitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field0" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field1" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field2" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field3" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field4" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field5" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field6" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field7" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field8" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field9" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field10" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="field11" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Credit Cards -->
+    <xs:complexType name="creditCardInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="id" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="maskedNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="type" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="telephoneEmailsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="individual" type="tns:individual" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="telephoneEmailsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="telephones" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="emails" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- End of Account Info-->
+
+    <!--  3. Job Related Data -->
+    <!-- References-->
+    <xs:complexType name="referenceEntity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="parentName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="tooltip" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="pattern" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element name="mandatory" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="mustBeInList" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="showPrompts" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="referenceInstancesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="entityName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="caller" type="tns:individual" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="masterValue" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="instanceValueSearchString" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="referenceInstancesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="instances" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="allLoaded" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Booking Route Settings-->
+    <xs:complexType name="routeSettingsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="serviceCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="routeSettingsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <!-- All of this are depends on account and selected service -->
+                    <xs:element name="destinationUnknownAvailable" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="waitAndReturnAvailable" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="asDirectedAvailable" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!-- Special Instructions -->
+    <xs:complexType name="specialInstructionType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="parameter" type="tns:specialInstructionParameter" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="preferenceValue" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="specialInstructionParameter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="mandatory" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="type" type="tns:instructionParameterType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="values" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="instructionTypesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="caller" type="tns:individual" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="serviceCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="instructionTypesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="instructionTypes" type="tns:specialInstructionType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!-- Airports -->
+    <xs:complexType name="airport" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="address" type="tns:address" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="terminals" type="tns:terminal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="terminal" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="address" type="tns:address" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="meetingPoints" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="trainStation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="address" type="tns:address" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="meetingPoints" type="tns:trainStationMeetingPoint" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="trainStationMeetingPoint" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="address" type="tns:address" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="airportsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="airports" type="tns:airport" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="trainStationsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="trainStations" type="tns:trainStation" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="addressSearchRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <!--(meters)-->
+                    <xs:element minOccurs="0" name="distance" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="maxResults" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="addressSearchByStringRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:addressSearchRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="searchString" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="autocompleteSessionId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="addressSearchByCoordinatesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:addressSearchRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="latitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="longitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="adlerWsGetDetailedAddressRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:addressSearchRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="encodedFetchInfo" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="autocompleteSessionId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="addressSearchResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="address" type="tns:address" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!--  4. Calculate Job Totals -->
+    <xs:complexType name="quotationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobValidationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="pickupStatistics" type="tns:pickupStatistics" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="price" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <!--(kilometers)-->
+                    <xs:element minOccurs="0" name="distance" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="journeyTime" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="fare" type="tns:fare" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Delay and Prebook Capacity -->
+    <xs:complexType name="pickupStatistics" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="asap" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <!-- For ASAP cases-->
+            <xs:element minOccurs="0" name="delay" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <!-- For prebook cases-->
+            <xs:element minOccurs="0" name="prevDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="nextDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Price-->
+    <xs:complexType name="price" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:element name="net" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                <xs:element name="taxTotal" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                <xs:element name="gross" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                <xs:element name="currencyCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            </xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="fare" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="base" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="pickupWaitingTime" type="tns:waitingTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="stopsWaitingTime" type="tns:waitingTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="adjustments" type="tns:priceAdjustment" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="commonTaxes" type="tns:tax" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element minOccurs="0" name="discount" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="total" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="currency" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="waitingTime" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="0" name="duration" type="tns:duration" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="amount" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="duration" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:pattern value="[0-9]{2}:[0-5][0-9]:[0-5][0-9]" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="priceAdjustment" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:additionalPayment" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element default="true" minOccurs="0" name="applyCommonTaxes" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="specialTaxes" type="tns:tax" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="specialInstruction" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="typeCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="value" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Reference Validation -->
+    <xs:complexType name="validateReferencesRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="caller" type="tns:individual" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" name="references" type="tns:reference" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="validateReferencesResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" name="validationResult" type="tns:referenceValidationInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="reference" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="entityName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="value" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="referenceValidationInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="entityName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="mandatoryPassed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="mustBeInListPassed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="patternPassed" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Base job definition -->
+    <xs:complexType name="baseJob" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="caller" type="tns:caller" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element name="asap" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="serviceCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="jobDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="paymentType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element minOccurs="0" name="numberOfPassengers" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="numberOfRegularBags" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="numberOfLargeBags" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="deadline" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <!-- a|d, d|u, w|r -->
+            <xs:element name="routeInfo" type="tns:routeInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="promoCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element minOccurs="0" name="creditCard" type="tns:creditCard" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="actors" type="tns:actor" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="references" type="tns:reference" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="specialInstructions" type="tns:specialInstruction" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="delayRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pin" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="caller" type="tns:caller" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="serviceCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="specialInstructions" type="tns:specialInstruction" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="stop" type="tns:stop" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="delayResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobValidationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="delay" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="caller" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="0" name="individualId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="creditCard" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="0" name="id" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="startDate" type="tns:monthYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="expiryDate" type="tns:monthYear" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="holderName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element minOccurs="0" name="number" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="cvcNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="issueNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="billingAddress" type="tns:billingAddress" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element minOccurs="0" name="encryptedDetails" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="billingAddress" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="0" name="country" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="street" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="streetNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="town" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="postcode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="routeInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="destinationUnknown" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="waitAndReturn" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="asDirected" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="asDirectedHours" type="xs:time" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="jobId" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="jobNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="accountNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="accountName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="serviceCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="baseActor" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="0" name="individualId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="telephone" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="email" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="actor" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:baseActor" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="type" type="tns:actorType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+
+    </xs:complexType>
+
+    <!--<xs:complexType name="stopContact">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="individualId" type="tns:uuid"/>
+            <xs:element minOccurs="0" name="name" type="xs:string"/>
+            <xs:element minOccurs="0" name="telephone" type="xs:string"/>
+            <xs:element minOccurs="0" name="email" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>-->
+
+    <xs:complexType name="stop" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="operationType" type="tns:stopOperationType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="address" type="tns:address" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+            <xs:element minOccurs="0" name="contact" type="tns:baseActor" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="airportDetails" type="tns:airportStopDetails" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="trainDetails" type="tns:trainStopDetails" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="notes" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- extended stop with extra|w/t-->
+    <xs:complexType name="airportStopDetails" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="airportCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="terminalCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="flightNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="eta" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="pickupTimeDelay" type="xs:nonNegativeInteger" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="airline" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="arrivalFrom" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="meetingPoint" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="trainStopDetails" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="trainStation" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="meetingPoint" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="pickupTimeDelay" type="xs:nonNegativeInteger" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="eta" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="arrivalFrom" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="trainNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Validate job-->
+    <xs:complexType name="jobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="job" type="tns:job" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Job to send in quotation/validate/book cases -->
+    <xs:complexType name="job" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:baseJob" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="stops" type="tns:stop" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Validation response-->
+    <xs:complexType name="jobValidationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="validationResult" type="tns:validationMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="validationMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="message" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--  6.1 Book Job -->
+    <xs:complexType name="bookJobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="1" minOccurs="0" name="securePaymentParameters" type="tns:securePaymentParameters" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="requestId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="senderJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="securePaymentParameters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="acceptHeader" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="userAgent" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="termUrl" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bookJobResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobValidationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="1" minOccurs="0" name="redirectInfo" type="tns:redirectInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="senderJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="price" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="completePaymentRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="requestId" type="tns:uuid" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="content" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="securePaymentParameter" type="tns:securePaymentParameter" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="redirectInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element minOccurs="1" name="url" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="1" name="html" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="1" name="requestType" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="redirectParameter" type="tns:redirectParameter" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="redirectParameter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element maxOccurs="1" minOccurs="1" name="key" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="securePaymentParameter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element maxOccurs="1" minOccurs="1" name="key" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="value" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <!--  6.2 Amend job -->
+    <xs:complexType name="amendJobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="job" type="tns:finalJob" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="senderJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="receiverJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="jobIdRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <!-- info of job on server-->
+                    <xs:element name="receiverJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <!-- client job info -->
+                    <xs:element name="senderJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="jobPriceDetailsRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobIdRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!--  6.3 Cancel job -->
+    <xs:complexType name="cancelJobRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobIdRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="reason" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="cancelledWithCharge" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="cancelJobResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="cancelledWithCharge" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!--  6.5 Get Job Status -->
+    <xs:complexType name="jobStatusResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="jobStatus" type="tns:jobStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="driver" type="tns:jobDriverInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="driverEta" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="jobDriverInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="callsign" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="telephone" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="vehicleModel" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="vehicleRegNumber" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="vehicleColor" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="latitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="longitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <!--(kph)-->
+            <xs:element minOccurs="0" name="speed" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="bearing" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="positionDate" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Client Messages -->
+    <xs:complexType name="jobStatusChangedRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="receiverJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="senderJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="newStatus" type="tns:jobStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="driver" type="tns:jobDriverInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="driverEta" type="xs:dateTime" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="finalJob" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:baseJob" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="stops" type="tns:finalStop" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="extras" type="tns:jobExtra" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <!-- pricing -->
+                    <xs:element minOccurs="0" name="price" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="basePrice" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="extraStopsPrice" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pickupWaitingTimePrice" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="stopsWaitingTimePrice" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="discount" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="extraPrice" type="tns:price" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <!--(kilometers)-->
+                    <xs:element minOccurs="0" name="distance" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="journeyTime" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+                    <xs:element minOccurs="0" name="cancelledWithCharge" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="fare" type="tns:fare" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="finalStop" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:stop" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="extraStop" type="xs:boolean" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="waitingTime" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="additionalPayment" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:element minOccurs="0" name="amount" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="jobExtra" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:additionalPayment" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="jobReadyForInvoiceRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <!-- job with id and final values (extras, journey time, distance, etc.)-->
+                    <xs:element name="job" type="tns:finalJob" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="receiverJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="senderJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="receiptRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <!-- job with id and final values (extras, journey time, distance, etc.)-->
+                    <xs:element minOccurs="0" name="job" type="tns:finalJob" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="receiverJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="senderJobInfo" type="tns:jobInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="tax" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:additionalPayment" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="charge" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:additionalPayment" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="receiptResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobValidationResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="basePrice" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="extraStopsPrice" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="pickupWaitingTimePrice" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="stopsWaitingTimePrice" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="discount" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="totalPrice" type="xs:decimal" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="currency" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="extras" type="tns:jobExtra" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="taxes" type="tns:tax" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="charges" type="tns:charge" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+
+                    <xs:element minOccurs="0" name="fare" type="tns:fare" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="jobPriceDetailsResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:receiptResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="zoneInfoRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="latitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element name="longitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="zoneInfoResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element minOccurs="0" name="name" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="code" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="parentName" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element minOccurs="0" name="parentCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="fleetRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="statuses" type="tns:driverStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceCode" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <!--(meters)-->
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="radius" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="latitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="longitude" type="xs:double" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="fleetResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="drivers" type="tns:driverInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="driverInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:complexContent xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:extension base="tns:jobDriverInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <xs:element name="status" type="tns:driverStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Enums -->
+    <xs:simpleType name="serviceType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="PASSENGER" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="DELIVERY" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="stopOperationType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="PICKUP" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="DROP" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="accountType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="CORPORATE" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="RETAIL" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="accountStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="CURRENT" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ON_HOLD" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="CLOSED" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="pinStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="CURRENT" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ON_HOLD" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="individualStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="CURRENT" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ON_HOLD" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="instructionParameterType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="STRING" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="INTEGER" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="FLOAT" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="DATE" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ENUM" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="actorType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="PASSENGER" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="CONTACT" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="STOP_CONTACT" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="jobStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="BOOKED" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ALLOCATED" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ON_WAY" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="AT_PICKUP" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ON_BOARD" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="DONE" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="CANCELLED" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="CANCELLED_WITH_CHARGE" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="driverStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:enumeration value="UNKNOWN" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="LOGGED_OFF" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="EMPTY" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="RANK" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="ON_BREAK" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="GOING_HOME" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <xs:enumeration value="DOING_JOB" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="schemaValidationFaultDetail" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="validationError" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="CompletePaymentResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CompletePaymentResponse" name="CompletePaymentResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ZoneInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ZoneInfoResponse" name="ZoneInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailLoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailLoginRequest" name="RetailLoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailPasswordRecoveryResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailPasswordRecoveryResponse" name="RetailPasswordRecoveryResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobStatusResponse" name="JobStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobPriceDetailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobPriceDetailsResponse" name="JobPriceDetailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:LoginResponse" name="LoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AmendJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AmendJobRequest" name="AmendJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReferenceInstancesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ReferenceInstancesRequest" name="ReferenceInstancesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateReferencesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ValidateReferencesResponse" name="ValidateReferencesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddressSearchByCoordinatesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AddressSearchByCoordinatesRequest" name="AddressSearchByCoordinatesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailUpdateProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailUpdateProfileResponse" name="RetailUpdateProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailLogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailLogoutResponse" name="RetailLogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CallerInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CallerInfoResponse" name="CallerInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CancelJobRequest" name="CancelJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobStatusRequest" name="JobStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddressSearchByStringRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AddressSearchByStringRequest" name="AddressSearchByStringRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TrainStationsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:TrainStationsResponse" name="TrainStationsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailRegisterResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailRegisterResponse" name="RetailRegisterResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailChangePhoneResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailChangePhoneResponse" name="RetailChangePhoneResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AvailableInstructionTypesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AvailableInstructionTypesResponse" name="AvailableInstructionTypesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AirportsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AirportsRequest" name="AirportsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CallerInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CallerInfoRequest" name="CallerInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CancelJobResponse" name="CancelJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AdlerWsGetDetailedAddressRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AdlerWsGetDetailedAddressRequest" name="AdlerWsGetDetailedAddressRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobPriceDetailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobPriceDetailsRequest" name="JobPriceDetailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddressSearchByStringResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AddressSearchByStringResponse" name="AddressSearchByStringResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="QuotationResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:QuotationResponse" name="QuotationResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="FleetResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:FleetResponse" name="FleetResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailChangePhoneRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailChangePhoneRequest" name="RetailChangePhoneRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReceiptRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ReceiptRequest" name="ReceiptRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailCheckUserExistsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailCheckUserExistsResponse" name="RetailCheckUserExistsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:LogoutRequest" name="LogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AirportsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AirportsResponse" name="AirportsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TelephonesEmailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:TelephonesEmailsResponse" name="TelephonesEmailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailCheckUserExistsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailCheckUserExistsRequest" name="RetailCheckUserExistsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddressSearchByCoordinatesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AddressSearchByCoordinatesResponse" name="AddressSearchByCoordinatesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="FleetRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:FleetRequest" name="FleetRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AccountInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AccountInfoRequest" name="AccountInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobStatusChangedResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobStatusChangedResponse" name="JobStatusChangedResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailLoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailLoginResponse" name="RetailLoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RouteSettingsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RouteSettingsResponse" name="RouteSettingsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailUpdateProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailUpdateProfileRequest" name="RetailUpdateProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailLoadProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailLoadProfileResponse" name="RetailLoadProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobReadyForInvoiceResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobReadyForInvoiceResponse" name="JobReadyForInvoiceResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailPasswordRecoveryRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailPasswordRecoveryRequest" name="RetailPasswordRecoveryRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReferenceInstancesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ReferenceInstancesResponse" name="ReferenceInstancesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:LogoutResponse" name="LogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ValidateJobResponse" name="ValidateJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DelayRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:DelayRequest" name="DelayRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PinInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:PinInfoResponse" name="PinInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TelephonesEmailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:TelephonesEmailsRequest" name="TelephonesEmailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobStatusChangedRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobStatusChangedRequest" name="JobStatusChangedRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ValidateJobRequest" name="ValidateJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AvailableInstructionTypesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AvailableInstructionTypesRequest" name="AvailableInstructionTypesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailChangePasswordRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailChangePasswordRequest" name="RetailChangePasswordRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RouteSettingsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RouteSettingsRequest" name="RouteSettingsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="QuotationRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:QuotationRequest" name="QuotationRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailRegisterRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailRegisterRequest" name="RetailRegisterRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReceiptResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ReceiptResponse" name="ReceiptResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerDataResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CustomerDataResponse" name="CustomerDataResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="JobReadyForInvoiceRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:JobReadyForInvoiceRequest" name="JobReadyForInvoiceRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ZoneInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ZoneInfoRequest" name="ZoneInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailLogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailLogoutRequest" name="RetailLogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AdlerWsGetDetailedAddressResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AdlerWsGetDetailedAddressResponse" name="AdlerWsGetDetailedAddressResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:LoginRequest" name="LoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateReferencesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:ValidateReferencesRequest" name="ValidateReferencesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="BookJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:BookJobRequest" name="BookJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AccountInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AccountInfoResponse" name="AccountInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerDataRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CustomerDataRequest" name="CustomerDataRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PinInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:PinInfoRequest" name="PinInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DelayResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:DelayResponse" name="DelayResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CompletePaymentRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:CompletePaymentRequest" name="CompletePaymentRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TrainStationsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:TrainStationsRequest" name="TrainStationsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="BookJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:BookJobResponse" name="BookJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AmendJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:AmendJobResponse" name="AmendJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailChangePasswordResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailChangePasswordResponse" name="RetailChangePasswordResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RetailLoadProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:part element="tns:RetailLoadProfileRequest" name="RetailLoadProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="adlerPortType" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:operation name="CompletePayment" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:CompletePaymentRequest" name="CompletePaymentRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:CompletePaymentResponse" name="CompletePaymentResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZoneInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:ZoneInfoRequest" name="ZoneInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:ZoneInfoResponse" name="ZoneInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLogin" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailLoginRequest" name="RetailLoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailLoginResponse" name="RetailLoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailPasswordRecovery" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailPasswordRecoveryRequest" name="RetailPasswordRecoveryRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailPasswordRecoveryResponse" name="RetailPasswordRecoveryResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobStatus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:JobStatusRequest" name="JobStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:JobStatusResponse" name="JobStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobPriceDetails" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:JobPriceDetailsRequest" name="JobPriceDetailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:JobPriceDetailsResponse" name="JobPriceDetailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:LoginRequest" name="LoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:LoginResponse" name="LoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:AmendJobRequest" name="AmendJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:AmendJobResponse" name="AmendJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReferenceInstances" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:ReferenceInstancesRequest" name="ReferenceInstancesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:ReferenceInstancesResponse" name="ReferenceInstancesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateReferences" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:ValidateReferencesRequest" name="ValidateReferencesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:ValidateReferencesResponse" name="ValidateReferencesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressSearchByCoordinates" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:AddressSearchByCoordinatesRequest" name="AddressSearchByCoordinatesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:AddressSearchByCoordinatesResponse" name="AddressSearchByCoordinatesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailUpdateProfile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailUpdateProfileRequest" name="RetailUpdateProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailUpdateProfileResponse" name="RetailUpdateProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLogout" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailLogoutRequest" name="RetailLogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailLogoutResponse" name="RetailLogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallerInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:CallerInfoRequest" name="CallerInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:CallerInfoResponse" name="CallerInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:CancelJobRequest" name="CancelJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:CancelJobResponse" name="CancelJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressSearchByString" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:AddressSearchByStringRequest" name="AddressSearchByStringRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:AddressSearchByStringResponse" name="AddressSearchByStringResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrainStations" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:TrainStationsRequest" name="TrainStationsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:TrainStationsResponse" name="TrainStationsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailRegister" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailRegisterRequest" name="RetailRegisterRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailRegisterResponse" name="RetailRegisterResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailChangePhone" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailChangePhoneRequest" name="RetailChangePhoneRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailChangePhoneResponse" name="RetailChangePhoneResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AvailableInstructionTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:AvailableInstructionTypesRequest" name="AvailableInstructionTypesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:AvailableInstructionTypesResponse" name="AvailableInstructionTypesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Airports" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:AirportsRequest" name="AirportsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:AirportsResponse" name="AirportsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdlerWsGetDetailedAddress" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:AdlerWsGetDetailedAddressRequest" name="AdlerWsGetDetailedAddressRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:AdlerWsGetDetailedAddressResponse" name="AdlerWsGetDetailedAddressResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Quotation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:QuotationRequest" name="QuotationRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:QuotationResponse" name="QuotationResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fleet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:FleetRequest" name="FleetRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:FleetResponse" name="FleetResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Receipt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:ReceiptRequest" name="ReceiptRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:ReceiptResponse" name="ReceiptResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailCheckUserExists" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailCheckUserExistsRequest" name="RetailCheckUserExistsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailCheckUserExistsResponse" name="RetailCheckUserExistsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:LogoutRequest" name="LogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:LogoutResponse" name="LogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TelephonesEmails" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:TelephonesEmailsRequest" name="TelephonesEmailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:TelephonesEmailsResponse" name="TelephonesEmailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:AccountInfoRequest" name="AccountInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:AccountInfoResponse" name="AccountInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobStatusChanged" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:JobStatusChangedRequest" name="JobStatusChangedRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:JobStatusChangedResponse" name="JobStatusChangedResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RouteSettings" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RouteSettingsRequest" name="RouteSettingsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RouteSettingsResponse" name="RouteSettingsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLoadProfile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailLoadProfileRequest" name="RetailLoadProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailLoadProfileResponse" name="RetailLoadProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobReadyForInvoice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:JobReadyForInvoiceRequest" name="JobReadyForInvoiceRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:JobReadyForInvoiceResponse" name="JobReadyForInvoiceResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:ValidateJobRequest" name="ValidateJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:ValidateJobResponse" name="ValidateJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delay" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:DelayRequest" name="DelayRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:DelayResponse" name="DelayResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:PinInfoRequest" name="PinInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:PinInfoResponse" name="PinInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailChangePassword" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:RetailChangePasswordRequest" name="RetailChangePasswordRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:RetailChangePasswordResponse" name="RetailChangePasswordResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerData" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:CustomerDataRequest" name="CustomerDataRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:CustomerDataResponse" name="CustomerDataResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <wsdl:input message="tns:BookJobRequest" name="BookJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:input>
+      <wsdl:output message="tns:BookJobResponse" name="BookJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="adlerPortTypeSoap12" type="tns:adlerPortType" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    <wsdl:operation name="CompletePayment" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="CompletePaymentRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="CompletePaymentResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZoneInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="ZoneInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="ZoneInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLogin" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailLoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailLoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailPasswordRecovery" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailPasswordRecoveryRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailPasswordRecoveryResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobStatus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="JobStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="JobStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobPriceDetails" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="JobPriceDetailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="JobPriceDetailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="LoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="LoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="AmendJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="AmendJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReferenceInstances" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="ReferenceInstancesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="ReferenceInstancesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateReferences" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="ValidateReferencesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="ValidateReferencesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressSearchByCoordinates" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="AddressSearchByCoordinatesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="AddressSearchByCoordinatesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailUpdateProfile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailUpdateProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailUpdateProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLogout" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailLogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailLogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallerInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="CallerInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="CallerInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="CancelJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="CancelJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressSearchByString" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="AddressSearchByStringRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="AddressSearchByStringResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrainStations" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="TrainStationsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="TrainStationsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailRegister" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailRegisterRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailRegisterResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailChangePhone" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailChangePhoneRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailChangePhoneResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AvailableInstructionTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="AvailableInstructionTypesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="AvailableInstructionTypesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Airports" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="AirportsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="AirportsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdlerWsGetDetailedAddress" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="AdlerWsGetDetailedAddressRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="AdlerWsGetDetailedAddressResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Quotation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="QuotationRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="QuotationResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fleet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="FleetRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="FleetResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Receipt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="ReceiptRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="ReceiptResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailCheckUserExists" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailCheckUserExistsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailCheckUserExistsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="LogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="LogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TelephonesEmails" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="TelephonesEmailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="TelephonesEmailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="AccountInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="AccountInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobStatusChanged" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="JobStatusChangedRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="JobStatusChangedResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RouteSettings" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RouteSettingsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RouteSettingsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLoadProfile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailLoadProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailLoadProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobReadyForInvoice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="JobReadyForInvoiceRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="JobReadyForInvoiceResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="ValidateJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="ValidateJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delay" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="DelayRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="DelayResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="PinInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="PinInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailChangePassword" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="RetailChangePasswordRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailChangePasswordResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerData" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="CustomerDataRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="CustomerDataResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:operation soapAction="" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      <wsdl:input name="BookJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:input>
+      <wsdl:output name="BookJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="adlerPortTypeSoap11" type="tns:adlerPortType" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+    <wsdl:operation name="CompletePayment" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CompletePaymentRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="CompletePaymentResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZoneInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="ZoneInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="ZoneInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLogin" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailLoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailLoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailPasswordRecovery" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailPasswordRecoveryRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailPasswordRecoveryResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobStatus" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="JobStatusRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="JobStatusResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobPriceDetails" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="JobPriceDetailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="JobPriceDetailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="LoginRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="LoginResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="AmendJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="AmendJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReferenceInstances" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="ReferenceInstancesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="ReferenceInstancesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateReferences" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="ValidateReferencesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="ValidateReferencesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressSearchByCoordinates" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="AddressSearchByCoordinatesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="AddressSearchByCoordinatesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailUpdateProfile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailUpdateProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailUpdateProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLogout" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailLogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailLogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallerInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CallerInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="CallerInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CancelJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="CancelJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressSearchByString" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="AddressSearchByStringRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="AddressSearchByStringResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrainStations" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="TrainStationsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="TrainStationsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailRegister" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailRegisterRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailRegisterResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailChangePhone" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailChangePhoneRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailChangePhoneResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AvailableInstructionTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="AvailableInstructionTypesRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="AvailableInstructionTypesResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Airports" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="AirportsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="AirportsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdlerWsGetDetailedAddress" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="AdlerWsGetDetailedAddressRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="AdlerWsGetDetailedAddressResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Quotation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="QuotationRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="QuotationResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fleet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="FleetRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="FleetResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Receipt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="ReceiptRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="ReceiptResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailCheckUserExists" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailCheckUserExistsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailCheckUserExistsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="LogoutRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="LogoutResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TelephonesEmails" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="TelephonesEmailsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="TelephonesEmailsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="AccountInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="AccountInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobStatusChanged" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="JobStatusChangedRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="JobStatusChangedResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RouteSettings" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RouteSettingsRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RouteSettingsResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailLoadProfile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailLoadProfileRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailLoadProfileResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobReadyForInvoice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="JobReadyForInvoiceRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="JobReadyForInvoiceResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="ValidateJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="ValidateJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delay" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="DelayRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="DelayResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="PinInfoRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="PinInfoResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetailChangePassword" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="RetailChangePasswordRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="RetailChangePasswordResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerData" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="CustomerDataRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="CustomerDataResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookJob" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:operation soapAction="" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      <wsdl:input name="BookJobRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:input>
+      <wsdl:output name="BookJobResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="adlerService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:port binding="tns:adlerPortTypeSoap12" name="adlerPortTypeSoap12" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap12:address location="http://book.ptgtravels.com:80/external-ws/adler/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:adlerPortTypeSoap11" name="adlerPortTypeSoap11" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <soap:address location="http://book.ptgtravels.com:80/external-ws/adler/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
