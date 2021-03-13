@@ -1,0 +1,28 @@
+
+I am following this guide
+https://spring.io/guides/gs/consuming-web-service/
+
+1. Generate spring folder
+git clone https://github.com/spring-guides/gs-consuming-web-service.git
+cp gs-consuming-web-service/initial ./ptg
+
+2. Update pom.xml from com.example to com.dewcis.ptg and update the code and test files
+
+3. Save the https://book.ptgtravels.com/external-ws/adler/wsdl to ./ptg/src/main/resources/adler.wsdl
+
+4. Add object generation tags to pom.xml now pom.xml.wsdl 
+Generate the object by running
+mvn compile
+
+5. Updated the call code
+./ptg/src/main/java/com/dewcis/ptg/ConsumingWebServiceApplication.java
+./ptg/src/main/java/com/dewcis/ptg/Login.java
+./ptg/src/main/java/com/dewcis/ptg/Logout.java
+./ptg/src/main/java/com/dewcis/ptg/Accounts.java
+./ptg/src/main/java/com/dewcis/ptg/Booking.java
+./ptg/src/main/java/com/dewcis/ptg/ptgConfiguration.java
+
+6. Added @XmlRootElement to used bean elements
+
+7. Edited ObjectFactory.java remove @XmlElementDecl(namespace = "http://www.haulmont.com/sherlock/adler", code
+
