@@ -46,9 +46,11 @@ public class ConsumingWebServiceApplication {
 			
 			AccountInfoResponse acct = accounts.getAccounts(sessionId);
 			System.out.println("AccountInfoResponse : " + acct.getResponseCode());
+			System.out.println("AccountInfoResponse : " + acct.getMessage());
 			
 			BookJobResponse book = booking.getBooking(sessionId);
 			System.out.println("BookJobResponse : " + book.getResponseCode());
+			System.out.println("BookJobResponse : " + book.getMessage());
 			
 			LogoutResponse logoutResp = logout.getLogout(sessionId);
 			System.out.println("LogoutResponse : " + logoutResp.getResponseCode());

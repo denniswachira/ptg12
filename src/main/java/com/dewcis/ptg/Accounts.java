@@ -22,7 +22,7 @@ public class Accounts extends WebServiceGatewaySupport {
   	ObjectFactory pof = new ObjectFactory();
     AccountInfoRequest request = pof.createAccountInfoRequest();
     request.setSessionId(sessionId);
-    request.setAccountNumber("DEMO");
+    request.setAccountNumber("66");
     
     AccountInfoResponse response = (AccountInfoResponse) getWebServiceTemplate()
         .marshalSendAndReceive("https://book.ptgtravels.com/external-ws/adler/", request,
