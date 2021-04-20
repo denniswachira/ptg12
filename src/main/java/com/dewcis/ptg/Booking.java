@@ -69,11 +69,14 @@ public class Booking extends WebServiceGatewaySupport {
 		caller.setIndividualId("3dccf0e9-84ef-a5c8-9915-c22cccf457bf");
 		caller.setName("Test Account");
 
-		Date date = new Date();
 		XMLGregorianCalendar xmlDate = null;
-		GregorianCalendar gc = new GregorianCalendar();
-		gc.setTime(date);
 		try {
+			String input = "2021-05-12 10:10";
+			SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			Date date = parser.parse(input);
+        
+			GregorianCalendar gc = new GregorianCalendar();
+			gc.setTime(date);
 			xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
 		} catch(Exception e) {
 			e.printStackTrace();
