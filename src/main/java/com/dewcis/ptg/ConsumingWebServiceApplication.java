@@ -44,13 +44,14 @@ public class ConsumingWebServiceApplication {
 			System.out.println("<><><>sessionId : " + sessionId);
 			System.out.println("<><><>responseCode : " + response.getResponseCode());
 			
-			AccountInfoResponse acct = accounts.getAccounts(sessionId);
-			System.out.println("AccountInfoResponse : " + acct.getResponseCode());
-			System.out.println("AccountInfoResponse : " + acct.getMessage());
-			
 			BookJobResponse book = booking.getBooking(sessionId);
 			System.out.println("BookJobResponse : " + book.getResponseCode());
 			System.out.println("BookJobResponse : " + book.getMessage());
+			System.out.println("Book Job ID : " + book.getSenderJobInfo().getJobId());
+			System.out.println("Book Price : " + book.getPrice().getCurrencyCode());
+			System.out.println("Book Price Gross : " + book.getPrice().getGross());
+			System.out.println("Book Price Net : " + book.getPrice().getNet());
+			System.out.println("Book Price Total : " + book.getPrice().getTaxTotal());
 			
 			LogoutResponse logoutResp = logout.getLogout(sessionId);
 			System.out.println("LogoutResponse : " + logoutResp.getResponseCode());
