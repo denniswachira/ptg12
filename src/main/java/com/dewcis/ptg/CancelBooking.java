@@ -22,20 +22,25 @@ import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 import com.dewcis.ptg.beans.*;
 
-public class Booking extends WebServiceGatewaySupport {
+public class CancelBooking extends WebServiceGatewaySupport {
 
-	private static final Logger log = LoggerFactory.getLogger(Booking.class);
+	private static final Logger log = LoggerFactory.getLogger(CancelBooking.class);
 
-	public BookJobResponse getBooking(BookJobRequest request) {
-
-		BookJobResponse response = (BookJobResponse) getWebServiceTemplate()
+	public CancelJobResponse getCancelBooking(String sessionId, JobInfo senderJobInfo, JobInfo receiverJobInfo) {
+	
+		ObjectFactory pof = new ObjectFactory();
+		CancelJobRequest request = pof.createCancelJobRequest();
+		request.setSessionId(sessionId);
+		request.setSenderJobInfo(senderJobInfo);
+		request.setReceiverJobInfo(receiverJobInfo);
+	
+		CancelJobResponse response = (CancelJobResponse) getWebServiceTemplate()
 			.marshalSendAndReceive("https://book.ptgtravels.com/external-ws/adler/", request,
-		new SoapActionCallback("https://book.ptgtravels.com/external-ws/adler/BookJobRequest"));
+		new SoapActionCallback("https://book.ptgtravels.com/external-ws/adler/CancelJobResponse"));
 
 		log.info("Requesting booking info ");
-
-
-		return response;
+	
+		return null;
 	}
 
 }

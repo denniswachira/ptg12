@@ -11,6 +11,7 @@ package com.dewcis.ptg.beans;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -38,6 +39,7 @@ import javax.xml.bind.annotation.XmlType;
     "reason",
     "cancelledWithCharge"
 })
+@XmlRootElement(name = "CancelJobRequest")
 public class CancelJobRequest
     extends JobIdRequest
 {

@@ -11,7 +11,7 @@ package com.dewcis.ptg.beans;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * <p>Java class for cancelJobResponse complex type.
@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "cancelJobResponse", propOrder = {
     "cancelledWithCharge"
 })
+@XmlRootElement(name = "CancelJobResponse")
 public class CancelJobResponse
     extends Response
 {
