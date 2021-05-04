@@ -52,10 +52,28 @@ public class ptgConfiguration {
 		client.setUnmarshaller(marshaller);
 		return client;
 	}
+	
+	@Bean
+	public BookingStatus bookingStatus(Jaxb2Marshaller marshaller) {
+		BookingStatus client = new BookingStatus();
+		client.setDefaultUri("https://book.ptgtravels.com/external-ws/adler/");
+		client.setMarshaller(marshaller);
+		client.setUnmarshaller(marshaller);
+		return client;
+	}
+	
+	@Bean
+	public BookingAmend bookingAmend(Jaxb2Marshaller marshaller) {
+		BookingAmend client = new BookingAmend();
+		client.setDefaultUri("https://book.ptgtravels.com/external-ws/adler/");
+		client.setMarshaller(marshaller);
+		client.setUnmarshaller(marshaller);
+		return client;
+	}
 
 	@Bean
-	public CancelBooking cancelBooking(Jaxb2Marshaller marshaller) {
-		CancelBooking client = new CancelBooking();
+	public BookingCancel bookingCancel(Jaxb2Marshaller marshaller) {
+		BookingCancel client = new BookingCancel();
 		client.setDefaultUri("https://book.ptgtravels.com/external-ws/adler/");
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);

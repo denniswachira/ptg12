@@ -33,7 +33,7 @@ public class ConsumingWebServiceApplication {
 	}
 
 	@Bean
-	CommandLineRunner lookup(Login login, Logout logout, Accounts accounts, Booking booking, CancelBooking cancelBooking) {
+	CommandLineRunner lookup(Login login, Logout logout, Accounts accounts, Booking booking, BookingStatus bookingStatus, BookingAmend bookingAmend, BookingCancel bookingCancel) {
 		return args -> {
 			String username = "ptg_integration";
 			String password = "9DyOJATR";
@@ -45,7 +45,7 @@ public class ConsumingWebServiceApplication {
 			System.out.println("<><><>responseCode : " + response.getResponseCode());
 			
 			Trip trip = new Trip();
-			Job job = trip.getJob("2021-05-12 10:10");
+			Job job = trip.getJob("2021-07-12 10:10");
 			BookJobRequest tripRequest = trip.getTripRequest(sessionId, job);
 			
 			BookJobResponse book = booking.getBooking(tripRequest);
@@ -53,12 +53,19 @@ public class ConsumingWebServiceApplication {
 			System.out.println("BookJobResponse : " + book.getMessage());
 			System.out.println("Book Job ID : " + book.getSenderJobInfo().getJobId());
 			System.out.println("Book Price : " + book.getPrice().getCurrencyCode());
-			System.out.println("Book Price Gross : " + book.getPrice().getGross());
 			System.out.println("Book Price Net : " + book.getPrice().getNet());
-			System.out.println("Book Price Total : " + book.getPrice().getTaxTotal());
+			System.out.println("Book Total Tax : " + book.getPrice().getTaxTotal());
+			System.out.println("Book Price Gross : " + book.getPrice().getGross());
 			
-			CancelJobResponse cBooking = cancelBooking.getCancelBooking(sessionId, tripRequest.getSenderJobInfo(), book.getSenderJobInfo());
-			System.out.println("LogoutResponse : " + cBooking.getResponseCode());
+			JobStatusResponse bookStatus = bookingStatus.getBookingStatus(sessionId, trip.getJobInfo(), book.getSenderJobInfo());
+			System.out.println("JobStatusResponse : " + bookStatus.getResponseCode());
+			
+			FinalJob finalJob = trip.changeDate("2021-07-14 10:10");
+			BookJobResponse bookAmend = bookingAmend.getBookingAmend(sessionId, finalJob, trip.getJobInfo(), book.getSenderJobInfo());
+			System.out.println("Amended BookJobResponse : " + bookAmend.getResponseCode());
+			
+			CancelJobResponse bookCancel = bookingCancel.getBookingCancel(sessionId, trip.getJobInfo(), book.getSenderJobInfo());
+			System.out.println("BookingCancel : " + bookCancel.getResponseCode());
 			
 			LogoutResponse logoutResp = logout.getLogout(sessionId);
 			System.out.println("LogoutResponse : " + logoutResp.getResponseCode());

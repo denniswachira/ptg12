@@ -22,25 +22,27 @@ import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 import com.dewcis.ptg.beans.*;
 
-public class CancelBooking extends WebServiceGatewaySupport {
+public class BookingStatus extends WebServiceGatewaySupport {
 
-	private static final Logger log = LoggerFactory.getLogger(CancelBooking.class);
+	private static final Logger log = LoggerFactory.getLogger(BookingStatus.class);
 
-	public CancelJobResponse getCancelBooking(String sessionId, JobInfo senderJobInfo, JobInfo receiverJobInfo) {
+	public JobStatusResponse getBookingStatus(String sessionId, JobInfo senderJobInfo, JobInfo receiverJobInfo) {
+	
+		log.info("Get booking status .... ");
+		System.out.println("Book Job No1 : " + senderJobInfo.getJobNumber());
+		System.out.println("Book Job No2 : " + receiverJobInfo.getJobNumber());
 	
 		ObjectFactory pof = new ObjectFactory();
-		CancelJobRequest request = pof.createCancelJobRequest();
+		JobIdRequest request = pof.createJobIdRequest();
 		request.setSessionId(sessionId);
 		request.setSenderJobInfo(senderJobInfo);
 		request.setReceiverJobInfo(receiverJobInfo);
 	
-		CancelJobResponse response = (CancelJobResponse) getWebServiceTemplate()
+		JobStatusResponse response = (JobStatusResponse) getWebServiceTemplate()
 			.marshalSendAndReceive("https://book.ptgtravels.com/external-ws/adler/", request,
-		new SoapActionCallback("https://book.ptgtravels.com/external-ws/adler/CancelJobResponse"));
-
-		log.info("Requesting booking info ");
+		new SoapActionCallback("https://book.ptgtravels.com/external-ws/adler/JobStatusResponse"));
 	
-		return null;
+		return response;
 	}
 
 }

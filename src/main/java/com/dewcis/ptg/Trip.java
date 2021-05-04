@@ -25,6 +25,9 @@ import com.dewcis.ptg.beans.*;
 public class Trip {
 
 	private static final Logger log = LoggerFactory.getLogger(Trip.class);
+	
+	JobInfo jobInfo = null;
+	Job job = null;
 
 	public Job getJob(String tripDate) {
 		Stop pickupStop = new Stop();
@@ -60,26 +63,16 @@ public class Trip {
 		caller.setIndividualId("3dccf0e9-84ef-a5c8-9915-c22cccf457bf");
 		caller.setName("Test Account");
 
-		XMLGregorianCalendar xmlDate = null;
-		try {
-			SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			Date date = parser.parse(tripDate);
-        
-			GregorianCalendar gc = new GregorianCalendar();
-			gc.setTime(date);
-			xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		XMLGregorianCalendar xmlDate = getXmlDate(tripDate);
 
-		Job job = new Job();
+		job = new Job();
 		job.setAccountNumber("66");
 		job.setCaller(caller);
 		job.setJobDate(xmlDate);
 		job.setPaymentType("INVOICE");
 		job.setServiceCode("01");
 		job.setNumberOfPassengers(1);
-		job.setAsap( true ); 					// The booking shall be executed immediately
+		job.setAsap(true); 					// The booking shall be executed immediately
 		job.getActors().add(actor);
 		job.getReferences().add(reference);
 		job.getStops().add(pickupStop);
@@ -91,14 +84,63 @@ public class Trip {
 	public BookJobRequest getTripRequest(String sessionId, Job job) {
 		String requestId = UUID.randomUUID().toString();
 		System.out.println("Book Request ID : " + requestId);
+		
+		jobInfo = new JobInfo();
+		jobInfo.setAccountName("Ben Muuo");
+		jobInfo.setAccountNumber("66");
+		jobInfo.setJobId(UUID.randomUUID().toString());
+		jobInfo.setJobNumber("1233");
+		jobInfo.setServiceCode("01");
 
 		ObjectFactory pof = new ObjectFactory();
 		BookJobRequest request = pof.createBookJobRequest();
 		request.setSessionId(sessionId);
 		request.setRequestId(requestId);
 		request.setJob(job);
+		request.setSenderJobInfo(jobInfo);
 		
 		return request;
 	};
+	
+	public XMLGregorianCalendar getXmlDate(String tripDate) {
+		XMLGregorianCalendar xmlDate = null;
+		try {
+			SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			Date date = parser.parse(tripDate);
+        
+			GregorianCalendar gc = new GregorianCalendar();
+			gc.setTime(date);
+			xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return xmlDate;
+	}
+	
+	public FinalJob changeDate(String tripDate) {
+		XMLGregorianCalendar xmlDate = getXmlDate(tripDate);
+		
+		FinalJob finalJob = new FinalJob();
+		finalJob.setAccountNumber(job.getAccountNumber());
+		finalJob.setCaller(job.getCaller());
+		finalJob.setJobDate(xmlDate);
+		finalJob.setPaymentType(job.getPaymentType());
+		finalJob.setServiceCode(job.getServiceCode());
+		finalJob.setNumberOfPassengers(job.getNumberOfPassengers());
+		finalJob.setAsap(true);
+		finalJob.getActors().addAll(job.getActors());
+		finalJob.getReferences().addAll(job.getReferences());
+		//for(Stop stop : job.getStops()) finalJob.getStops().add(stop);
+
+		return finalJob;
+	}
+	
+	public Job getJob() {
+		return job;
+	}
+	
+	public JobInfo getJobInfo() {
+		return jobInfo;
+	}
 
 }

@@ -20,9 +20,21 @@ mvn compile
 ./ptg/src/main/java/com/dewcis/ptg/Logout.java
 ./ptg/src/main/java/com/dewcis/ptg/Accounts.java
 ./ptg/src/main/java/com/dewcis/ptg/Booking.java
+./ptg/src/main/java/com/dewcis/ptg/BookingStatus.java
+./ptg/src/main/java/com/dewcis/ptg/BookingAmend.java
+./ptg/src/main/java/com/dewcis/ptg/BookingCancel.java
 ./ptg/src/main/java/com/dewcis/ptg/ptgConfiguration.java
 
 6. Added @XmlRootElement to used bean elements
 
 7. Edited ObjectFactory.java remove @XmlElementDecl(namespace = "http://www.haulmont.com/sherlock/adler", code
 
+8. Trip class is used to make the trip and holds the trip information
+
+9. Booking is used to make booking
+
+10. BookingStatus is to get the booking sttaus information
+
+11. BookingAmend is used to make an ammendment to the trip
+
+12. BookingCancel is used to cancle the trip
